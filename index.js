@@ -12,6 +12,9 @@ const { createGzip } = require('zlib');
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3000;
 
+const llmRouter = require("./api/routers/llm.js")
+
+
 const app = express()
 app.use(cors())
 app.use(bodyParser.json());
@@ -25,6 +28,9 @@ app.use(fileUpload({
   //limits: { fileSize: 5 * 1024 * 1024 * 1024 }, // 5 GB aws sunucusunun bir kerede max upload miktarı.
   limits: { fileSize: 10 * 1024 * 1024 }, // 5 GB aws sunucusunun bir kerede max upload miktarı.
 }));
+
+app.use("/api/v10/llm", llmRouter)
+
 app.get("/", (req, res) => {
     res.json({
         data:"Hello world"
