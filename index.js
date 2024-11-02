@@ -15,7 +15,8 @@ const PORT = process.env.PORT || 3000;
 const llmRouter = require("./api/routers/llm.js")
 const companyRouter = require("./api/routers/company.js")
 
-
+const { connectDB } = require("./api/config/db.js")
+connectDB()
 const app = express()
 app.use(cors())
 app.use(bodyParser.json());
