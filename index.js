@@ -13,6 +13,7 @@ const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3000;
 
 const llmRouter = require("./api/routers/llm.js")
+const companyRouter = require("./api/routers/company.js")
 
 
 const app = express()
@@ -30,7 +31,7 @@ app.use(fileUpload({
 }));
 
 app.use("/api/v10/llm", llmRouter)
-
+app.use("/api/v10/company", companyRouter)
 app.get("/", (req, res) => {
     res.json({
         data:"Hello world"
