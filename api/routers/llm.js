@@ -1,7 +1,9 @@
 const express = require("express")
 const route = express.Router()
-const { searchProduct } = require("../controller/product")
-const { addCompanyVector } = require("../controller/company")
-route.post("/search", searchProduct)
-route.post("/vector", addCompanyVector)
+const { describe,answerTheQuestion,cancelTheQuestion } = require("../controller/conversition")
+
+route.post("/conversition", describe)
+route.post("/answer_question", answerTheQuestion)
+route.post("/cancel_question", cancelTheQuestion)
+
 module.exports = route

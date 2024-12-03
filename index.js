@@ -3,7 +3,6 @@ require("dotenv").config()
 const path = require('path');
 const compression = require('compression');
 const express = require("express")
-const session = require('express-session');
 const colors = require("colors")
 const fileUpload = require('express-fileupload');
 const cors = require('cors');
